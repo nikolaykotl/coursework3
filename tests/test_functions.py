@@ -2,7 +2,7 @@ from utils.functions import sign_substitution_from, last_operation_exe, sing_sub
 
 def test_sign_substitution_from():
     assert sign_substitution_from('Visa Gold 1234567890123456') == 'Visa Gold 1234 56** **** 3456'
-    assert sign_substitution_from('Visa 1234567890123456') == 'Visa 1234 56** **** 3456'
+    assert sign_substitution_from('Visa 1234567890123457') == 'Visa 1234 56** **** 3457'
     assert sign_substitution_from('Счет 12345678901234567890') == 'Счет 1234 56** **** **** 7890'
 
 def test_sing_substitution_to():

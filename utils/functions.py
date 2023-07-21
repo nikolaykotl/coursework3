@@ -7,10 +7,16 @@ def sign_substitution_from(account_from):
         if word.isnumeric():
            digit_account = word
     name_of_account = re.sub('[0-9]', '',account_from)
-    a = digit_account[0:4]
-    b= digit_account[4:6]
-    c = digit_account[12:16]
-    sign_substitution_account =name_of_account + a + ' ' + b + '** **** ' + c
+    if len(digit_account) == 16:
+        a = digit_account[0:4]
+        b= digit_account[4:6]
+        c = digit_account[12:16]
+        sign_substitution_account =name_of_account + a + ' ' + b + '** **** ' + c
+    elif len(digit_account) == 20:
+        a = digit_account[0:4]
+        b= digit_account[4:6]
+        c = digit_account[16:20]
+        sign_substitution_account =name_of_account + a + ' ' + b + '** **** **** ' + c
     return sign_substitution_account
 
 def last_operation_exe(data):
@@ -29,7 +35,7 @@ def last_operation_exe(data):
     operation_exe.sort(key=itemgetter('date'), reverse=True)
 
     last_operation_exe = []
-    for i in range(1, 6):
+    for i in range(0, 5):
         last_operation_exe.append(operation_exe[i])
     return last_operation_exe
 def sing_substitution_to(account_to):

@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
 
     for operation in last_operation_exe(data):
-        date_operation = operation['date'][5:7] + '.' + operation['date'][4:6] + '.' + operation['date'][0:4]
+        date_operation = operation['date'][6:8] + '.' + operation['date'][4:6] + '.' + operation['date'][0:4]
         description = operation['description']
         if operation.get('from'):
             operation_from = sign_substitution_from(operation['from'])
