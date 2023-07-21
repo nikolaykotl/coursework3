@@ -23,7 +23,9 @@ def sign_substitution_from(account_from):
     return sign_substitution_account
 
 def last_operation_exe(data):
+
     """Функция возвращающая последние 5 выполненных операций, отсортированных по дате"""
+
     operation_exe = []
     for operation in data:
         if operation.get('state') and operation['state'] == "EXECUTED":
@@ -37,16 +39,15 @@ def last_operation_exe(data):
             else:
                 date = date
     operation_exe.sort(key=itemgetter('date'), reverse=True)
-
     last_operation_exe = []
     for i in range(0, 5):
         last_operation_exe.append(operation_exe[i])
     return last_operation_exe
 def sing_substitution_to(account_to):
+
     """Функция маскирующая номер счета получателя перевода (оплаты)"""
 
     word_list = account_to.split()
-
     for word in word_list:
         if word.isnumeric():
             digit_account = word
